@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 
+import './style.css';//
 const Navbar = () => {
 
   const pathname = usePathname();
