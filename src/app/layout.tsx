@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.css";
 import ImportBsJS from "./importBsJs";
+import Navbar from "./components/navigation/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,9 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           <ImportBsJS></ImportBsJS>
+          <Navbar></Navbar>
           {children}
+          
         </body>
       </html>
     </>
