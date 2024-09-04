@@ -5,7 +5,9 @@ import Navbar from "./components/navigation/navbar";
 
 export default function Home() {
   return (
-    <Navbar></Navbar>
+    <></>
+
+    // <Navbar></Navbar>
     // <main className={styles.main}>
     //    <div className={styles.description}>
     //     <p>
