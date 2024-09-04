@@ -1,6 +1,10 @@
 'use client'
+
+import { usePathname } from "next/navigation";
+
 const Navbar = () => {
-  const location = window.location;
+
+  const pathname = usePathname();
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -23,22 +27,22 @@ const Navbar = () => {
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0  ">
               <li className="nav-item">
-                <a className={location.pathname === "/" ? "nav-link active" : "nav-link"} aria-current="page" href="/">
+                <a className={pathname === "/" ? "nav-link active" : "nav-link"} aria-current="page" href="/">
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className={location.pathname === "/works" ? "nav-link active" : "nav-link"} href="/works">
+                <a className={pathname === "/works" ? "nav-link active" : "nav-link"} href="/works">
                   Works
                 </a>
               </li>
               <li className="nav-item">
-                <a className={location.pathname === "/certificates" ? "nav-link active" : "nav-link"} href="/certificates">
+                <a className={pathname === "/certificates" ? "nav-link active" : "nav-link"} href="/certificates">
                   Certificates
                 </a>
               </li>
               <li className="nav-item">
-                <a className={location.pathname === "/about" ? "nav-link active" : "nav-link"} href="/about">
+                <a className={pathname === "/about" ? "nav-link active" : "nav-link"} href="/about">
                   About
                 </a>
               </li>
