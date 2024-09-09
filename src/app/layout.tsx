@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Portfolio - ANUCHIT.NET",
   description: "Portfolio of Anuchit Raksaphon, a Software Developer.",
+  openGraph:{
+    images:'/home_intro.JPG',
+  }
 };
 
 export default function RootLayout({
