@@ -4,8 +4,8 @@ import "./globals.css";
 import "bootstrap/dist/css/bootstrap.css";
 import ImportBsJS from "./importBsJs";
 import Navbar from "./components/navigation/navbar";
-import { url } from "inspector";
-
+import { getLocale, getMessages } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,18 +18,23 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const local = await getLocale();
+  const messages = await getMessages();
   return (
     <>
       <html lang="en">
         <body className={inter.className}>
-          <ImportBsJS></ImportBsJS>
-          <Navbar></Navbar>
-          {children}
+          <NextIntlClientProvider messages={messages}>
+            <ImportBsJS />
+            <Navbar></Navbar>
+            {children}
+          </NextIntlClientProvider>
+
         </body>
       </html>
     </>
