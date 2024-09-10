@@ -19,9 +19,10 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({
-  children,
+  children, params: { locale }
 }: {
   children: React.ReactNode;
+  params: { locale: string }
 }) {
   const local = await getLocale();
   const messages = await getMessages();
@@ -30,7 +31,8 @@ export default async function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           <NextIntlClientProvider messages={messages}>
-        
+            <ImportBsJS />
+            <Navbar></Navbar>
             {children}
           </NextIntlClientProvider>
 
