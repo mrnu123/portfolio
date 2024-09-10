@@ -3,9 +3,14 @@
 import { usePathname } from "next/navigation";
 
 import './style.css';//
+import { Link } from "@/i18n/routing";
 const Navbar = () => {
 
-  const pathname = usePathname();
+  const pathnameSplit: string[] = usePathname().split("/");
+  pathnameSplit.shift(); 
+  pathnameSplit.shift(); //remove locale code
+  const pathname = pathnameSplit.join("/");
+  
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,24 +33,24 @@ const Navbar = () => {
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0  ">
               <li className="nav-item">
-                <a className={pathname === "/" ? "nav-link active" : "nav-link"} aria-current="page" href="/">
+                <Link className={pathname ===""? "nav-link active" : "nav-link"} aria-current="page" href="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className={pathname === "/works" ? "nav-link active" : "nav-link"} href="/works">
+                <Link className={pathname === "works" ? "nav-link active" : "nav-link"} href="/works">
                   Works
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className={pathname === "/certificates" ? "nav-link active" : "nav-link"} href="/certificates">
+                <Link className={pathname === "certificates" ? "nav-link active" : "nav-link"} href="/certificates">
                   Certificates
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className={pathname === "/about" ? "nav-link active" : "nav-link"} href="/about">
+                <Link className={pathname === "about" ? "nav-link active" : "nav-link"} href="/about">
                   About
-                </a>
+                </Link>
               </li>
 
             </ul>

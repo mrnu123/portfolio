@@ -2,7 +2,10 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Navbar from "./components/navigation/navbar";
 import { Box } from "@mui/material";
+import { useTranslations } from "next-intl";
+
 export default function Home() {
+  const t = useTranslations('HomePage')
   return (
     <>
       <div className="container">
@@ -12,6 +15,7 @@ export default function Home() {
           </div>
           <div className="col col-m-12" style={{textAlign:"center",justifyItems:"center"}}>
             <h1>Software Developer</h1>
+            <h2>{t('title')}</h2>
           </div>
         </div>
 
