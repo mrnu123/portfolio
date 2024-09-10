@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import "bootstrap/dist/css/bootstrap.css";
-import ImportBsJS from "./importBsJs";
-import Navbar from "./components/navigation/navbar";
 import { getLocale, getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 const inter = Inter({ subsets: ["latin"] });
@@ -30,7 +27,6 @@ export default async function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           <NextIntlClientProvider messages={messages}>
-        
             {children}
           </NextIntlClientProvider>
 

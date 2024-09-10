@@ -6,7 +6,11 @@ import './style.css';//
 import { Link } from "@/i18n/routing";
 const Navbar = () => {
 
-  const pathname = usePathname();
+  const pathnameSplit: string[] = usePathname().split("/");
+  pathnameSplit.shift(); 
+  pathnameSplit.shift(); //remove locale code
+  const pathname = pathnameSplit.join("/");
+  console.log(pathname);
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,22 +33,22 @@ const Navbar = () => {
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0  ">
               <li className="nav-item">
-                <Link className={pathname === "/" ? "nav-link active" : "nav-link"} aria-current="page" href="/">
+                <Link className={pathname ===""? "nav-link active" : "nav-link"} aria-current="page" href="/">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className={pathname === "/works" ? "nav-link active" : "nav-link"} href="/works">
+                <Link className={pathname === "works" ? "nav-link active" : "nav-link"} href="/works">
                   Works
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className={pathname === "/certificates" ? "nav-link active" : "nav-link"} href="/certificates">
+                <Link className={pathname === "certificates" ? "nav-link active" : "nav-link"} href="/certificates">
                   Certificates
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className={pathname === "/about" ? "nav-link active" : "nav-link"} href="/about">
+                <Link className={pathname === "about" ? "nav-link active" : "nav-link"} href="/about">
                   About
                 </Link>
               </li>
