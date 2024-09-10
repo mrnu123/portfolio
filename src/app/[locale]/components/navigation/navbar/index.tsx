@@ -10,7 +10,7 @@ const Navbar = () => {
   pathnameSplit.shift(); 
   pathnameSplit.shift(); //remove locale code
   const pathname = pathnameSplit.join("/");
-  console.log(pathname);
+  
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
