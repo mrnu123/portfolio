@@ -1,10 +1,11 @@
 'use client'
 
 import { usePathname } from "next/navigation";
-
-import './style.css';//
+import { useWindowSize } from 'react-use';
+import './style.css';
+import SwitchLanguage from "../../switchLanguage";
 const Navbar = () => {
-
+  const { width } = useWindowSize();
   const pathname = usePathname();
   return (
     <>
@@ -47,9 +48,16 @@ const Navbar = () => {
                   About
                 </a>
               </li>
-
+              {width <= 768 &&
+                <li className="nav-item">
+                  <SwitchLanguage />
+                </li>
+              }
             </ul>
           </div>
+          {width > 768 &&
+            <SwitchLanguage />
+          }
         </div>
       </nav>
     </>
